@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		81FD71EA2F98A9E20085D491 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 81FD71E92F98A9E20085D491 /* GoogleService-Info.plist */; };
 		F1A100042F929AD600F41120 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = F1A100022F929AD600F41120 /* FirebaseCore */; };
 		F1A100052F929AD600F41120 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F1A100032F929AD600F41120 /* FirebaseFirestore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1BCE903C2F929AD600F41120 /* MyFirstCloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFirstCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		81FD71E92F98A9E20085D491 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -39,6 +41,7 @@
 		1BCE90332F929AD600F41120 = {
 			isa = PBXGroup;
 			children = (
+				81FD71E92F98A9E20085D491 /* GoogleService-Info.plist */,
 				1BCE903E2F929AD600F41120 /* MyFirstCloud */,
 				1BCE903D2F929AD600F41120 /* Products */,
 			);
@@ -121,6 +124,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81FD71EA2F98A9E20085D491 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
