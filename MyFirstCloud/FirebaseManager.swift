@@ -5,23 +5,30 @@
 
 import FirebaseFirestore
 
-/// Hanterar alla anrop mot Firestore. Fyll i enligt README (async/await).
+
 final class FirebaseManager {
 
-    // TODO: Lägg till en `private let db`-property som pekar på Firestore.
-    // Rekommendation: `private let db = Firestore.firestore()` — se README ("Var ska db ligga?").
+  private let db = Firestore.firestore()
 
-    /// Hämtar alla dokument i kollektionen `notes` och gör om dem till `CloudNote`.
+    
     func fetchNotes() async -> [CloudNote] {
-        // TODO: Hämta dokument asynkront från kollektionen "notes" (try await + getDocuments).
-        // TODO: Bygg en [CloudNote] från resultatet (t.ex. data(as: CloudNote.self) per dokument).
-
-        return []
+        do {
+            let snapshot = try await db.collection("notes").getDocuments()
+            return snapshot.documents.compactMap{ doc in
+                try? doc.data(as: CloudNote.self)}
+        } catch  {
+            print("fetchNotes failed:" , error.localizedDescription)
+            return []
+        }
+        
     }
 
-    /// Sparar en ny anteckning som ett nytt dokument i kollektionen `notes`.
+    
     func saveNote(text: String) async {
-        // TODO: Lägg till ett nytt dokument asynkront med addDocument — data: ["text": text].
-        // Använd samma `db`-property som i fetchNotes (ingen ny `let db` i varje funktion).
+        do {
+            try await db.collection("notes").addDocument(data: ["text": text])
+        } catch  {
+            print("savedNote failed: " ,error.localizedDescription)
+        }
     }
 }
